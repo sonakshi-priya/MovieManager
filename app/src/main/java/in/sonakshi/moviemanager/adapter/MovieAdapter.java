@@ -1,6 +1,7 @@
 package in.sonakshi.moviemanager.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -34,11 +35,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         public MovieViewHolder(View itemView) {
             super(itemView);
 
-            movieImageView = (ImageView) itemView.findViewById(R.id.image_view_movie);
-            nameTextView = (TextView) itemView.findViewById(R.id.text_view_movie_name);
-            ratingTextView = (TextView) itemView.findViewById(R.id.text_view_movie_rating);
-            genreTextView = (TextView) itemView.findViewById(R.id.text_view_movie_genre);
-            releaseYearTextView = (TextView) itemView.findViewById(R.id.text_view_movie_releaseYear);
+            movieImageView = itemView.findViewById(R.id.image_view_movie);
+            nameTextView = itemView.findViewById(R.id.text_view_movie_name);
+            ratingTextView = itemView.findViewById(R.id.text_view_movie_rating);
+            genreTextView = itemView.findViewById(R.id.text_view_movie_genre);
+            releaseYearTextView = itemView.findViewById(R.id.text_view_movie_releaseYear);
         }
     }
 
@@ -85,6 +86,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         genreTextView.setText(genreStringBuilder.toString());
         TextView releaseYearTextView = holder.releaseYearTextView;
         releaseYearTextView.setText(String.valueOf(movie.getReleaseYear()));
+        ImageView imageView = holder.movieImageView;
+        String imageUrl = movie.getImage();
+
+        Picasso.get()
+                .load(Uri.parse(imageUrl))
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.image_not_found)
+                .into(imageView);
 
     }
 

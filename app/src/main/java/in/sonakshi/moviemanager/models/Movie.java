@@ -7,15 +7,13 @@ import java.util.List;
  */
 
 public class Movie {
-    private int id;
     private String title;
     private String image;
     private float rating;
     private int releaseYear;
     private List<String> genre;
 
-    public Movie(int id, String title, String image, float rating, int releaseYear, List<String> genre) {
-        this.id = id;
+    public Movie(String title, String image, float rating, int releaseYear, List<String> genre) {
         this.title = title;
         this.image = image;
         this.rating = rating;
@@ -23,9 +21,7 @@ public class Movie {
         this.genre = genre;
     }
 
-    public int getId() {
-        return id;
-    }
+
 
     public String getTitle() {
         return title;
@@ -50,7 +46,6 @@ public class Movie {
     @Override
     public String toString() {
         return "Movie{" +
-                "id=" + id +
                 ", title='" + title + '\'' +
                 ", image='" + image + '\'' +
                 ", rating=" + rating +

@@ -5,22 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="10dp"
-    android:paddingBottom="10dp">
+    android:paddingBottom="10dp"
+    android:weightSum="4">
 
     <ImageView
         android:id="@+id/image_view_movie"
-        android:layout_width="100dp"
-        android:layout_height="match_parent" />
+        android:layout_width="0dp"
+        android:layout_weight="0.8"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"/>
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="2.4"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="10dp"
         >
         <TextView
             android:id="@+id/text_view_movie_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textAppearance="?android:textAppearanceLarge"/>
         <TextView
             android:id="@+id/text_view_movie_rating"
             android:layout_width="match_parent"
@@ -32,7 +40,8 @@
         <TextView
             android:id="@+id/text_view_movie_releaseYear"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"/>
 
     </LinearLayout>
 </LinearLayout>
