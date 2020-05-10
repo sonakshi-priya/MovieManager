@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         final JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(API_URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
+                mMovies.clear();
                 for (int i=0; i<response.length(); i++) {
                     try {
                         JSONObject jsonObject = response.getJSONObject(i);
